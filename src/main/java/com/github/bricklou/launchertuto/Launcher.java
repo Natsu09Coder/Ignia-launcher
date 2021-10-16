@@ -19,7 +19,6 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.util.UUID;
 
@@ -28,12 +27,11 @@ public class Launcher extends Application {
     private final ILogger logger;
     private final Path launcherDir = GameDirGenerator.createGameDir("launcher-fx", true);
     private final Saver saver;
-    private PanelManager panelManager;
     private AuthInfos authInfos = null;
 
     public Launcher() {
         instance = this;
-        this.logger = new Logger("[LauncherFX]", this.launcherDir.resolve("launcher.log"));
+        this.logger = new Logger("[Ignia]", this.launcherDir.resolve("launcher.log"));
         if (!this.launcherDir.toFile().exists()) {
             if (!this.launcherDir.toFile().mkdir()) {
                 this.logger.err("Unable to create launcher folder");
@@ -51,15 +49,15 @@ public class Launcher extends Application {
     @Override
     public void start(Stage stage) {
         this.logger.info("Starting launcher");
-        this.panelManager = new PanelManager(this, stage);
-        this.panelManager.init();
+        PanelManager panelManager = new PanelManager(this, stage);
+        panelManager.init();
 
         if (this.isUserAlreadyLoggedIn()) {
             logger.info("Hello " + authInfos.getUsername());
 
-            this.panelManager.showPanel(new App());
+            panelManager.showPanel(new App());
         } else {
-            this.panelManager.showPanel(new Login());
+            panelManager.showPanel(new Login());
         }
     }
 
@@ -138,7 +136,4 @@ public class Launcher extends Application {
         System.exit(0);
     }
 
-    public void hideWindow() {
-        this.panelManager.getStage().hide();
-    }
 }

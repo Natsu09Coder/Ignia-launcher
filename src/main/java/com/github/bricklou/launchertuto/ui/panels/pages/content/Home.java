@@ -10,7 +10,6 @@ import fr.flowarg.flowupdater.download.IProgressCallback;
 import fr.flowarg.flowupdater.download.Step;
 import fr.flowarg.flowupdater.download.json.CurseFileInfos;
 import fr.flowarg.flowupdater.download.json.Mod;
-import fr.flowarg.flowupdater.download.json.OptifineInfo;
 import fr.flowarg.flowupdater.utils.UpdaterOptions;
 import fr.flowarg.flowupdater.versions.AbstractForgeVersion;
 import fr.flowarg.flowupdater.versions.ForgeVersionBuilder;
@@ -158,8 +157,7 @@ public class Home extends ContentPanel {
                     .withMods(mods)
                     .build();
 
-            final FlowUpdater updater = new FlowUpdater.FlowUpdaterBuilder()
-                    .withVersion(vanillaVersion)
+            final FlowUpdater updater = new FlowUpdater.FlowUpdaterBuilder().withVanillaVersion(vanillaVersion)
                     .withForgeVersion(forge)
                     .withLogger(Launcher.getInstance().getLogger())
                     .withProgressCallback(callback)
@@ -235,7 +233,6 @@ public class Home extends ContentPanel {
     }
 
     public enum StepInfo {
-        READ("Lecture du fichier json..."),
         DL_LIBS("Téléchargement des libraries..."),
         DL_ASSETS("Téléchargement des ressources..."),
         EXTRACT_NATIVES("Extraction des natives..."),
