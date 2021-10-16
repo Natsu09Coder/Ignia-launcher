@@ -1,9 +1,9 @@
 .box-pane {
-    -fx-background-color: #eee;
+    -fx-background-color: rgba(238,238,238,0.5);
 }
 
 .play-btn {
-    -fx-background-radius: 10px;
+    -fx-background-radius: 25px;
     -fx-font-size: 16px;
     -fx-text-fill: #F5F5F5;
     -fx-background-color: #85AE51;

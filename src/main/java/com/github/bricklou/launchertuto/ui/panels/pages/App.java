@@ -81,7 +81,7 @@ public class App extends Panel {
          * Side menu
          */
         // Titre
-        Label title = new Label("JavaFX Launcher");
+        Label title = new Label("Ignia");
         title.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 30f));
         title.getStyleClass().add("home-title");
         setCenterH(title);
@@ -118,10 +118,10 @@ public class App extends Panel {
         userPane.getStyleClass().add("user-pane");
         setBottom(userPane);
 
-        String avatarUrl = "https://minotar.net/avatar/" + (
+        String avatarUrl = "https://crafthead.net/avatar/" + (
                 saver.get("offline-username") != null ?
-                        "MHF_Steve.png" :
-                        Launcher.getInstance().getAuthInfos().getUuid() + ".png"
+                        "MHF_steve" :
+                        Launcher.getInstance().getAuthInfos().getUuid()
         );
         ImageView avatarView = new ImageView();
         Image avatarImg = new Image(avatarUrl);

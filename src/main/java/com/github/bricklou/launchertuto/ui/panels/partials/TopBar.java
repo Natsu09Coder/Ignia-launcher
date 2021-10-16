@@ -14,7 +14,6 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 
 public class TopBar extends Panel {
-    private GridPane topBar;
 
     @Override
     public String getName() {
@@ -29,9 +28,9 @@ public class TopBar extends Panel {
     @Override
     public void init(PanelManager panelManager) {
         super.init(panelManager);
-        this.topBar = this.layout;
+        GridPane topBar = this.layout;
         this.layout.setStyle("-fx-background-color: rgb(35, 40, 40);");
-        setCanTakeAllWidth(this.topBar);
+        setCanTakeAllWidth(topBar);
 
         /*
          * TopBar separation
@@ -45,7 +44,7 @@ public class TopBar extends Panel {
         this.layout.getChildren().add(imageView);
 
         // TopBar: center
-        Label title = new Label("JavaFx Launcher");
+        Label title = new Label("Ignia Launcher");
         title.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 18f));
         title.setStyle("-fx-text-fill: white;");
         setCenterH(title);
@@ -62,10 +61,10 @@ public class TopBar extends Panel {
         /*
          * TopBar buttons configuration
          */
-        FontAwesomeIconView closeBtn = new FontAwesomeIconView(FontAwesomeIcon.WINDOW_CLOSE);
-        FontAwesomeIconView fullscreenBtn = new FontAwesomeIconView(FontAwesomeIcon.WINDOW_MAXIMIZE);
+        FontAwesomeIconView closeBtn = new FontAwesomeIconView(FontAwesomeIcon.TIMES);
+        /*FontAwesomeIconView fullscreenBtn = new FontAwesomeIconView(FontAwesomeIcon.WINDOW_MAXIMIZE);*/
         FontAwesomeIconView minimizeBtn = new FontAwesomeIconView(FontAwesomeIcon.WINDOW_MINIMIZE);
-        setCanTakeAllWidth(closeBtn, fullscreenBtn, minimizeBtn);
+        setCanTakeAllWidth(closeBtn /*fullscreenBtn*/, minimizeBtn);
 
         closeBtn.setFill(Color.WHITE);
         closeBtn.setOpacity(.7f);
@@ -75,14 +74,6 @@ public class TopBar extends Panel {
         closeBtn.setOnMouseClicked(e -> System.exit(0));
         closeBtn.setTranslateX(70f);
 
-        fullscreenBtn.setFill(Color.WHITE);
-        fullscreenBtn.setOpacity(0.70f);
-        fullscreenBtn.setSize("14px");
-        fullscreenBtn.setOnMouseEntered(e -> fullscreenBtn.setOpacity(1.0f));
-        fullscreenBtn.setOnMouseExited(e -> fullscreenBtn.setOpacity(0.7f));
-        fullscreenBtn.setOnMouseClicked(e -> this.panelManager.getStage().setMaximized(!this.panelManager.getStage().isMaximized()));
-        fullscreenBtn.setTranslateX(50.0d);
-
         minimizeBtn.setFill(Color.WHITE);
         minimizeBtn.setOpacity(0.70f);
         minimizeBtn.setSize("18px");
@@ -91,6 +82,6 @@ public class TopBar extends Panel {
         minimizeBtn.setOnMouseClicked(e -> this.panelManager.getStage().setIconified(true));
         minimizeBtn.setTranslateX(26.0d);
 
-        topBarButton.getChildren().addAll(closeBtn, fullscreenBtn, minimizeBtn);
+        topBarButton.getChildren().addAll(closeBtn/*fullscreenBtn*/, minimizeBtn);
     }
 }

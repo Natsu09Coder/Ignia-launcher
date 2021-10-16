@@ -8,7 +8,6 @@ import fr.litarvan.openauth.AuthenticationException;
 import fr.litarvan.openauth.Authenticator;
 import fr.litarvan.openauth.microsoft.MicrosoftAuthenticator;
 import fr.litarvan.openauth.model.AuthAgent;
-import fr.litarvan.openauth.model.AuthProfile;
 import fr.litarvan.openauth.model.response.AuthResponse;
 import fr.theshark34.openlauncherlib.minecraft.AuthInfos;
 import fr.theshark34.openlauncherlib.util.Saver;
@@ -80,7 +79,7 @@ public class Login extends Panel {
         /*
          * Login sidebar
          */
-        Label title = new Label("JavaFX Launcher");
+        Label title = new Label("Ignia");
         title.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 30f));
         title.getStyleClass().add("login-title");
         setCenterH(title);
@@ -94,7 +93,7 @@ public class Login extends Panel {
         setCanTakeAllSize(userField);
         setCenterV(userField);
         setCenterH(userField);
-        userField.setPromptText("Adresse E-Mail");
+        userField.setPromptText("E-Mail");
         userField.setMaxWidth(300);
         userField.setTranslateY(-70d);
         userField.getStyleClass().add("login-input");
@@ -151,7 +150,7 @@ public class Login extends Panel {
                 userField.setPromptText("Pseudo");
                 passwordField.clear();
             } else {
-                userField.setPromptText("Adresse E-Mail");
+                userField.setPromptText("E-Mail");
             }
 
             btnLogin.setDisable(!(userField.getText().length() > 0 && (offlineAuth.get() || passwordField.getText().length() > 0)));

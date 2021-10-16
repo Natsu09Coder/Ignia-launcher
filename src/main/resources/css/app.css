@@ -10,6 +10,7 @@
     -fx-background-image: url("/images/background.png");
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
+
 }
 
 .home-title {
@@ -39,12 +40,8 @@
     -fx-border-color: #85AE51;
 }
 
-.nav-content {
-    -fx-background-color: rgba(240, 240, 240, 0.4);
-}
-
 .user-pane {
-    -fx-background-color: #85AE51;
+    -fx-background-color: #808080;
 }
 
 .logout-btn {
