@@ -11,6 +11,7 @@ import fr.litarvan.openauth.model.AuthAgent;
 import fr.litarvan.openauth.model.response.AuthResponse;
 import fr.theshark34.openlauncherlib.minecraft.AuthInfos;
 import fr.theshark34.openlauncherlib.util.Saver;
+import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -269,6 +270,13 @@ public class Login extends Panel {
                     response.getProfile().getId()
             ));
             this.logger.info("Hello " + response.getProfile().getName());
+
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    panelManager.showPanel(new App());
+                }
+            });
         });
     }
 }
