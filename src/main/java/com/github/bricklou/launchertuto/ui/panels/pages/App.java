@@ -58,11 +58,11 @@ public class App extends Panel {
         this.layout.getColumnConstraints().addAll(columnConstraints, new ColumnConstraints());
 
         // Side menu
-        this.layout.add(sidemenu, 0, 0);
-        sidemenu.getStyleClass().add("sidemenu");
-        setLeft(sidemenu);
-        setCenterH(sidemenu);
-        setCenterV(sidemenu);
+        // this.layout.add(sidemenu, 0, 0);
+        // sidemenu.getStyleClass().add("sidemenu");
+        // setLeft(sidemenu);
+        // setCenterH(sidemenu);
+        // setCenterV(sidemenu);
 
         // Background Image
         GridPane bgImage = new GridPane();
@@ -71,11 +71,11 @@ public class App extends Panel {
         this.layout.add(bgImage, 1, 0);
 
         // Nav content
-        this.layout.add(navContent, 1, 0);
-        navContent.getStyleClass().add("nav-content");
-        setLeft(navContent);
-        setCenterH(navContent);
-        setCenterV(navContent);
+        // this.layout.add(navContent, 1, 0);
+        // navContent.getStyleClass().add("nav-content");
+        // setLeft(navContent);
+        // setCenterH(navContent);
+        // setCenterV(navContent);
 
         /*
          * Side menu
@@ -119,7 +119,7 @@ public class App extends Panel {
             userPane.getStyleClass().add("user-pane");
             setBottom(userPane);
 
-            String avatarUrl = "https://crafthead.net/avatar/" + (
+            String avatarUrl = "https://minotar.net/avatar/" + (
                     saver.get("offline-username") != null ?
                             "MHF_steve" :
                             Launcher.getInstance().getAuthInfos().getUuid()
